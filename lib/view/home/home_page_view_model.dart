@@ -7,7 +7,7 @@ import 'package:flutter_riverpod_mix/view/home/dto/home_page_response_dto.dart';
 // 다이렉트 하게 접근하는 유일한 객체
 final homePageViewModel =
     StateNotifierProvider<HomePageViewModel, HomePageModel>((ref) {
-  return HomePageViewModel(HomePageModel(posts: []));
+  return HomePageViewModel(HomePageModel());
 });
 
 // Store, store가 가지고 있는 메서드들을 활용해서 Provider는 창고를 관리한다 2)
