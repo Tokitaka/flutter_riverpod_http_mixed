@@ -1,7 +1,8 @@
 /*homepage 관리 프로바이더 + 창고 = view_model*/
 /*HomePageModel -> Dto model , HomePageViewModel은 창고로서 HomePageModel 객체를 관리하고, homePageViewModel은 Provider*/
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_riverpod_mix/view/home/dto/home_page_response_dto.dart';
+
+import '../../dto/post_response_dto.dart';
 
 // Provider 1)
 // 다이렉트 하게 접근하는 유일한 객체
@@ -20,7 +21,7 @@ class HomePageViewModel extends StateNotifier<HomePageModel?> {
 // dart는 내부 클래스가 불가능하다
 // 창고 데이터 클래스를 따로 관리하는 이유는 ? 여러 가지 데이터 타입을 추가할 수 있기 때문
 class HomePageModel {
-  List<HomePagePostDto> posts; // Post는 어디에 만들어야 제일 효율적일까?
+  List<PostDto> posts; // Post는 어디에 만들어야 제일 효율적일까?
   HomePageModel({required this.posts}); // 항상 선택적 매개변수 {} 로 받는다
 }
 

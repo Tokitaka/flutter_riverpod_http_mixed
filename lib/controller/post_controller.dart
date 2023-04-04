@@ -1,7 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod_mix/repository/post_repository.dart';
-import 'package:flutter_riverpod_mix/view/home/dto/home_page_response_dto.dart';
 import 'package:flutter_riverpod_mix/view/home/home_page_view_model.dart';
+
+import '../dto/post_response_dto.dart';
 
 // ref 접근 용
 final postController = Provider<PostController>((ref) {
@@ -14,7 +15,8 @@ class PostController {
   Ref ref;
   PostController(this.ref);
   Future<void> findPosts() async {
-    List<HomePagePostDto> homePagePostDtos = await PostRepository().findAll();
-    ref.read(homePageViewModel.notifier).state = HomePageModel(posts: homePagePostDtos);
+    List<PostDto> postDtoList = await PostRepository().findAll();
+    // List<HomePagePostDto> homePagePostDtos = await PostRepository().findAll();
+    ref.read(homePageViewModel.notifier).state = HomePageModel(posts: postDtoList);
   }
 }
